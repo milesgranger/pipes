@@ -9,13 +9,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
           profile: minimal
           toolchain: nightly
           override: true
+
       - name: Build
-        run: cargo build --verbose
+        run: cargo build
+
       - name: Run tests
-        run: cargo test --verbose
+        run: cargo test
